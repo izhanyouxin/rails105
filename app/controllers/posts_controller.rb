@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   before_filter :authenticate_user!, :only => [:new, :create]
 
   def new
@@ -15,9 +16,10 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to group_path(@group)
     else
-      render
+      render :new
     end
   end
+
 
   private
 
